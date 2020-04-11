@@ -10,7 +10,6 @@ echo '<div class = "mw-100 mx-auto mb-4 ">
 		<option value="5">sexta</option>
 	</select>
 	<select  class="cad slideLeft" required name="semestre">
-	<option value="0">Semestres</option>
 	<option value="1">1º Semestre</option>
 	<option value="2">2º Semestre</option>
 	</select>

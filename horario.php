@@ -147,7 +147,7 @@ while ($valor = mysqli_fetch_assoc($sql)) {
 		// $qtd_a = array('nome' => $pd,
 		// 'qtd' => $carga_h );
 		for ($i = 0; $i < $c ; $i++) { 
-			$array[$cont] = $pd;
+			$array[$cont] = $pd."/".$valor['id_prof'];
 		}
 		$cont++;
 }
@@ -170,7 +170,7 @@ if($dia == 1){
 		for ($coluna=1; $coluna < $dis+1; $coluna++) { 
 
 			echo '<td class="hoi">
-			<select class="t comboCidades" id ="'.$id.'" name="'.$linha.'" searchable="Pesquise aqui.."  onchange="teste('.$id.','.$linha.','.$coluna.','.$dia.')" >
+			<select class="t comboCidades" id ="'.$id.'" value="'.$id.'" name="'.$linha.'" searchable="Pesquise aqui.."  onchange="teste('.$id.','.$linha.','.$coluna.','.$dia.')" >
 			<option>aula</option>
 			<optgroup label="Diretor de turma">';
 			$aux = 0;
@@ -201,6 +201,7 @@ if($dia == 1){
 						$tal = $carga_h/4;
 						$carga_h = $carga_h - $tal;
 						$SESSION[$pp] = array($pp => $carga_h);
+						$SESSION["ok"] = "fghjk";
 						//
 						while ($value = mysqli_fetch_assoc($sql_t)){
 						$local = $value['ano']."-".$value['curso'];
@@ -286,6 +287,7 @@ echo "</table>
 <script src="jquery-3.3.1.min.js"></script>
 <script>
 
+
 	   function limpar(dia){
 	   	var dia = dia;
 	   	var dt;
@@ -325,8 +327,13 @@ echo "</table>
 		alert('Tá certo.');
 				  }
 			   }
-				function teste(id,linha,coluna,dia){
+
+
+				function teste(id,linha,coluna,dia,){
 	                var id = id;
+	                var val = document.getElementById(id).value;
+	                alert($("#"+id+" option[value="+val+"]").text());
+  					return $("#"+id+"").val(val);
 	                // var comboCidades = document.getElementById(id);
 	    			//for (i = 0; i < comboCidades.length; i = i + 1) {
 					//     console.log(comboCidades.options[i]);

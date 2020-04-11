@@ -1,29 +1,18 @@
 <?php
 session_start();
-$pg = 0;
 
 require_once('head.php');
 require_once('nav.php');
 ?>
 <script>
-  function ajuda(){
+  function ajuda(op){
+
     var element = document.getElementById('ajuda');
-    element.innerHTML = '<h5>Passos:</h5><ul><li>'
-            '1º:Cadastrar todas as turmas.'
-          '</li>'
-          '<li>'
-            '2º:Cadastrar todas as disciplinas.'
-          '</li>'
-          '<li>'
-            '3º:Cadastrar todos os Professores.'
-          '</li>'
-          '<li>'
-            '4º:Gerar horário.'
-          '</li>'
-          '<li>'
-            '5º:Ver horário e salvar como pdf se desejado.'
-          '</li>'
-          '</ul>'}
+    element.innerHTML = '<div id="ajud"><h5 class="al">Ajuda <a href="#" class="btnfec" onclick='+"ajudafe('fechar')"+'>X</a></h5><ul><li>1º:Cadastrar todas as turmas.</li><li>2º:Cadastrar todas as disciplinas.</li><li>3º:Cadastrar todos os Professores.</li><li>4º:Gerar horário.</li><li>5º:Ver horário e salvar como pdf se desejado.</li></ul></div>';
+}
+function ajudafe(){
+    document.getElementById('ajuda').remove();
+}
 </script>
 <!DOCTYPE html>
 
@@ -63,8 +52,8 @@ th, td {
 <div class="main ">
   <div class="fun">
     <div class="conteudo" id="hh"> 
-      <div onclick="ajuda()" class="ajuda">
-        <button class="aju"><i class="fas fa-question-circle aj fa-2x"></i></button>
+      <div onclick="ajuda()" class="ajuda slideLeft">
+        <button class="aju"><i class="fas fa-question-circle aj fa-3x"></i></button>
       </div>
         <div id="ajuda">
           
